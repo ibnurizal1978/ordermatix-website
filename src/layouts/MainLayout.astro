@@ -1,0 +1,137 @@
+---
+// src/layouts/MainLayout.astro
+const { title } = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+const canonicalURL = new URL(
+    Astro.url.pathname,
+    Astro.site || "https://ordermatix.com",
+);
+---
+
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <link rel="canonical" href={canonicalURL.href} />
+        <meta
+            name="description"
+            content="Software aplikasi untuk order barang online antara pabrikan ke disstributor atau dari distributor ke agen menggunakan portal buyer"
+        />
+
+        <meta
+            property="og:title"
+            content="Sistem aplikasi order barang pabrikan ke distributor atau distributor ke agen"
+        />
+        <meta property="og:url" content="https://ordermatix.com" />
+        <meta
+            property="og:image"
+            content="https://ordermatix.com/assets/img/thumb.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@call_me_reezal" />
+        <meta
+            name="twitter:title"
+            content="Sistem Order Barang Pabrikan Distributor dan Agen Secara Online"
+        />
+        <meta
+            name="twitter:description"
+            content="Software aplikasi untuk order barang online antara pabrikan ke disstributor atau dari distributor ke agen menggunakan portal buyer"
+        />
+        <meta
+            name="twitter:image"
+            content="https://ordermatix.com/assets/img/software.webp"
+        />
+        <meta name="twitter:creator" content="@call_me_reezal" />
+
+        <meta name="robots" content="index, follow" />
+
+        <link href="/assets/favicon/apple-icon-180x180.png" rel="icon" />
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+        />
+
+        <!-- Vendor CSS Files -->
+        <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link
+            href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+        <link
+            href="/assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Template Main CSS File -->
+        <link href="/assets/css/style.css" rel="stylesheet" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Ordermatix",
+                "logo": "https://ordermatix.com/assets/images/logo-black.png",
+                "url": "https://ordermatix.com",
+                "email": "hello@ordermatix.com",
+
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday"
+                        ],
+                        "opens": "09:00",
+                        "closes": "17:00"
+                    }
+                ],
+
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "Indonesia"
+                },
+
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "A B2B Order Management System for Manufacturer, Distributor and Agent."
+                }
+            }
+        </script>
+
+        <!-- google tag -->
+        <script
+            is:inline
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-0R41NQQ7WT"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                window.dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-0R41NQQ7WT");
+        </script>
+    </head>
+    <body>
+        <Header />
+        <slot />
+        <Footer />
+    </body>
+</html>
